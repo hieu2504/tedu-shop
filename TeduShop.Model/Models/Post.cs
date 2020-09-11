@@ -13,6 +13,7 @@ namespace TeduShop.Model.Models
     public class Post:Auditable
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { set; get; }
 
         [Required]

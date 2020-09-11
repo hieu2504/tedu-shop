@@ -12,6 +12,7 @@ namespace TeduShop.Model.Models
     public class SupportOnline
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { set; get; }
 
         [MaxLength(256)]

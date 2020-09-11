@@ -14,6 +14,8 @@ namespace TeduShop.Model.Models
         [Key]
         public int PostID { set; get; }
         [Key]
+        [Column(TypeName ="varchar")]
+        [MaxLength(50)]
         public string TagID { set; get; }
 
         [ForeignKey("PostID")]
