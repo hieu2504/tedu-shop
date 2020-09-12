@@ -13,6 +13,7 @@ namespace TeduShop.Model.Models
     {
         [Key]
         [MaxLength(50)]
+        [Column(TypeName ="varchar")]
         public string ID { set; get; }
 
         [MaxLength(50)]
@@ -21,8 +22,8 @@ namespace TeduShop.Model.Models
         [MaxLength(50)]
         public string Type { set; get; }
 
-        public virtual PostTag PostTag { set; get; }
+      /*  public virtual PostTag PostTag { set; get; }
 
-        public virtual ProductTag ProductTag { set; get; }
+        public virtual ProductTag ProductTag { set; get; }*/
     }
 }

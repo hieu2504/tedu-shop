@@ -22,11 +22,12 @@ namespace TeduShop.Data.Infrastructure
         // Delete multi records
         void DeleteMulti(Expression<Func<T, bool>> where);
 
-        // Get an entity by int id
+        // Get an entity by int id, T tra ve 1 doi tuong
         T GetSingleById(int id);
 
         T GetSingleByCondition(Expression<Func<T, bool>> expression, string[] includes = null);
 
+        // IQueryable tra ve 1 list
         IQueryable<T> GetAll(string[] includes = null);
 
         IQueryable<T> GetMulti(Expression<Func<T, bool>> predicate, string[] includes = null);

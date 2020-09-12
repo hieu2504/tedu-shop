@@ -18,10 +18,14 @@ namespace TeduShop.Model.Models
         [Required]
         [MaxLength(256)]
         public string Alias { set; get; }
-        public int Category { set; get; }
+
+
+        public int CategoryID { set; get; }
         [MaxLength(500)]
         public string Image { set; get; }
-        public XElement MoreImages { set; get; }
+
+        [Column(TypeName ="xml")]
+        public string MoreImages { set; get; }
         public decimal Price { set; get; }
         public decimal? PromotionPrice { set; get; }
         public int Warranty { set; get; }
