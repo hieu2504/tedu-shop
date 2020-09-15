@@ -6,7 +6,7 @@ using TeduShop.Model.Models;
 namespace TeduShop.Service
 {
     public interface IPostCategoryService
-    {
+    {   
         void Add(PostCategory postCategory);
 
         void Update(PostCategory postCategory);
