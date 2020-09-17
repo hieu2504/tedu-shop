@@ -3,6 +3,12 @@
   "name": "asp.net",
   "private": true,
   "devDependencies": {
-    "angular": "1.8.0"
+    "angular": "1.8.0",
+    "angular-ui-router": "1.0.28",
+    "jquery": "3.5.1",
+    "bootstrap": "4.5.2",
+    "slimscroll": "0.9.1",
+    "fastclick": "1.0.6"
+    
   }
 }
