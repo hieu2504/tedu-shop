@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TemplateFactory = void 0;
 /** @publicapi @module view */ /** */
 var angular_1 = require("./angular");
 var core_1 = require("@uirouter/core");
@@ -168,7 +167,9 @@ var TemplateFactory = /** @class */ (function () {
             // some-attr="::$resolve.someResolveName"
             return attrName + "='" + prefix + "$resolve." + resolveName + "'";
         };
-        var attrs = getComponentBindings(component).map(attributeTpl).join(' ');
+        var attrs = getComponentBindings(component)
+            .map(attributeTpl)
+            .join(' ');
         var kebobName = kebob(component);
         return "<" + kebobName + " " + attrs + "></" + kebobName + ">";
     };

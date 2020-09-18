@@ -1,4 +1,3 @@
-/** @publicapi @module ng1 */ /** */
 import { pick, forEach, tail, extend, isArray, isInjectable, isDefined, isString, services, trace, ViewService, ResolveContext, Resolvable, } from '@uirouter/core';
 /** @internalapi */
 export function getNg1ViewConfigFactory() {

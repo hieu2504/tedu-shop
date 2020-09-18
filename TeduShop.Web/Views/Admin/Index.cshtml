@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<html ng-app="tedushop">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +16,7 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<body class="hold-transition sidebar-mini" ng-app="tedushop">
+<body class="hold-transition sidebar-mini" >
     <!-- Site wrapper -->
     <div class="wrapper">
         <!-- Navbar -->
@@ -27,7 +27,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index.html" class="nav-link">Home</a>
+                    <a ui-sref="admin" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Contact</a>
@@ -144,7 +144,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="../../index3.html" class="brand-link">
+            <a href="#" class="brand-link">
                 <img src="~/Assets/admin/img/AdminLTELogo.png"
                      alt="AdminLTE Logo"
                      class="brand-image img-circle elevation-3"
@@ -179,23 +179,18 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="../../index.html" class="nav-link">
+                                    <a ui-sref="products" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Dashboard v1</p>
+                                        <p>Product List</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../../index2.html" class="nav-link">
+                                    <a ui-sref="product_add" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Dashboard v2</p>
+                                        <p>Product ADD</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="../../index3.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Dashboard v3</p>
-                                    </a>
-                                </li>
+                                
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -702,7 +697,7 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-
+            <div ui-view></div>
         </div>
         <!-- /.content-wrapper -->
 
@@ -736,6 +731,14 @@
     <script src="~/Assets/admin/js/demo.js"></script>
     <!--Begin embed angularJS-->
     <script src="~/Assets/admin/libs/angular/angular.js"></script>
-    <script src="~/Assets/admin/libs/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="~/Assets/admin/libs/angular-ui-router/release/angular-ui-router.js"></script>                                                      
+    <script src="~/app/app.js"></script>
+    <script src="~/app/shared/modules/tedushop.common.js"></script>
+    <script src="~/app/components/products/products.module.js"></script>
+
+    <script src="~/app/components/products/productAddController.js"></script>
+    <script src="~/app/components/products/productListController.js"></script>
+    <script src="~/app/components/home/homeController.js"></script>
+
 </body>
 </html>

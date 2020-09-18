@@ -129,7 +129,6 @@ import { Ng1ViewConfig } from '../statebuilders/views';
  * ```
  */
 export var uiView;
-// eslint-disable-next-line prefer-const
 uiView = [
     '$view',
     '$animate',
@@ -137,7 +136,7 @@ uiView = [
     '$interpolate',
     '$q',
     function $ViewDirective($view, $animate, $uiViewScroll, $interpolate, $q) {
-        function getRenderer() {
+        function getRenderer(attrs, scope) {
             return {
                 enter: function (element, target, cb) {
                     if (angular.version.minor > 2) {
@@ -172,8 +171,8 @@ uiView = [
             transclude: 'element',
             compile: function (tElement, tAttrs, $transclude) {
                 return function (scope, $element, attrs) {
-                    var onloadExp = attrs['onload'] || '', autoScrollExp = attrs['autoscroll'], renderer = getRenderer(), inherited = $element.inheritedData('$uiView') || rootData, name = $interpolate(attrs['uiView'] || attrs['name'] || '')(scope) || '$default';
-                    var previousEl, currentEl, currentScope, viewConfig;
+                    var onloadExp = attrs['onload'] || '', autoScrollExp = attrs['autoscroll'], renderer = getRenderer(attrs, scope), inherited = $element.inheritedData('$uiView') || rootData, name = $interpolate(attrs['uiView'] || attrs['name'] || '')(scope) || '$default';
+                    var previousEl, currentEl, currentScope, viewConfig, unregister;
                     var activeUIView = {
                         $type: 'ng1',
                         id: directive.count++,
@@ -202,7 +201,7 @@ uiView = [
                     }
                     $element.data('$uiView', { $uiView: activeUIView });
                     updateView();
-                    var unregister = $view.registerUIView(activeUIView);
+                    unregister = $view.registerUIView(activeUIView);
                     scope.$on('$destroy', function () {
                         trace.traceUIViewEvent('Destroying/Unregistering', activeUIView);
                         unregister();
@@ -288,9 +287,9 @@ uiView = [
         return directive;
     },
 ];
-$ViewDirectiveFill.$inject = ['$compile', '$controller', '$transitions', '$view', '$q'];
+$ViewDirectiveFill.$inject = ['$compile', '$controller', '$transitions', '$view', '$q', '$timeout'];
 /** @hidden */
-function $ViewDirectiveFill($compile, $controller, $transitions, $view, $q) {
+function $ViewDirectiveFill($compile, $controller, $transitions, $view, $q, $timeout) {
     var getControllerAs = parse('viewDecl.controllerAs');
     var getResolveAs = parse('viewDecl.resolveAs');
     return {
@@ -359,8 +358,7 @@ var _uiCanExitId = 0;
 /** @hidden TODO: move these callbacks to $view and/or `/hooks/components.ts` or something */
 function registerControllerCallbacks($q, $transitions, controllerInstance, $scope, cfg) {
     // Call $onInit() ASAP
-    if (isFunction(controllerInstance.$onInit) &&
-        !((cfg.viewDecl.component || cfg.viewDecl.componentProvider) && hasComponentImpl)) {
+    if (isFunction(controllerInstance.$onInit) && !((cfg.viewDecl.component || cfg.viewDecl.componentProvider) && hasComponentImpl)) {
         controllerInstance.$onInit();
     }
     var viewState = tail(cfg.path).state.self;
@@ -378,8 +376,14 @@ function registerControllerCallbacks($q, $transitions, controllerInstance, $scop
             var toParams = $transition$.params('to');
             var fromParams = $transition$.params('from');
             var getNodeSchema = function (node) { return node.paramSchema; };
-            var toSchema = $transition$.treeChanges('to').map(getNodeSchema).reduce(unnestR, []);
-            var fromSchema = $transition$.treeChanges('from').map(getNodeSchema).reduce(unnestR, []);
+            var toSchema = $transition$
+                .treeChanges('to')
+                .map(getNodeSchema)
+                .reduce(unnestR, []);
+            var fromSchema = $transition$
+                .treeChanges('from')
+                .map(getNodeSchema)
+                .reduce(unnestR, []);
             // Find the to params that have different values than the from params
             var changedToParams = toSchema.filter(function (param) {
                 var idx = fromSchema.indexOf(param);

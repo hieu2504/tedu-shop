@@ -11,7 +11,7 @@ import { getLocals } from '../services';
  * @internalapi
  */
 export var getStateHookBuilder = function (hookName) {
-    return function stateHookBuilder(stateObject) {
+    return function stateHookBuilder(stateObject, parentFn) {
         var hook = stateObject[hookName];
         var pathname = hookName === 'onExit' ? 'from' : 'to';
         function decoratedNg1Hook(trans, state) {

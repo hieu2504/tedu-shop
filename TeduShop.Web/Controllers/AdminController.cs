@@ -13,5 +13,11 @@ namespace TeduShop.Web.Controllers
         {
             return View();
         }
+
+        // get: Test1
+/*        public ActionResult Test1()
+        {
+            return View();
+        }*/
     }
 }

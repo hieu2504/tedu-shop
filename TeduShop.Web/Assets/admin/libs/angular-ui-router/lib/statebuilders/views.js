@@ -1,7 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Ng1ViewConfig = exports.ng1ViewsBuilder = exports.getNg1ViewConfigFactory = void 0;
-/** @publicapi @module ng1 */ /** */
 var core_1 = require("@uirouter/core");
 /** @internalapi */
 function getNg1ViewConfigFactory() {

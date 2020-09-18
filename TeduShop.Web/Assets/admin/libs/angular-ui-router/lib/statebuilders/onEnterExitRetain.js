@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getStateHookBuilder = void 0;
 /** @publicapi @module ng1 */ /** */
 var core_1 = require("@uirouter/core");
 var services_1 = require("../services");
@@ -14,7 +13,7 @@ var services_1 = require("../services");
  * @internalapi
  */
 exports.getStateHookBuilder = function (hookName) {
-    return function stateHookBuilder(stateObject) {
+    return function stateHookBuilder(stateObject, parentFn) {
         var hook = stateObject[hookName];
         var pathname = hookName === 'onExit' ? 'from' : 'to';
         function decoratedNg1Hook(trans, state) {

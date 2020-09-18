@@ -1,4 +1,3 @@
-/** @publicapi @module ng1 */ /** */
 import { StateObject, ViewConfig, ViewConfigFactory, PathNode, ResolveContext, IInjectable } from '@uirouter/core';
 import { Ng1ViewDeclaration } from '../interface';
 import { TemplateFactory } from '../templateFactory';

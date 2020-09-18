@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.$stateNotFound = exports.$stateChangeError = exports.$stateChangeSuccess = exports.$stateChangeCancel = exports.$stateChangeStart = void 0;
 /**
  * # Legacy state events
  *
@@ -148,7 +147,6 @@ var angular_1 = require("../angular");
         .provider('$stateEvents', $StateEventsProvider)
         .run([
         '$stateEvents',
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         function ($stateEvents) {
             /* Invokes $get() */
         },

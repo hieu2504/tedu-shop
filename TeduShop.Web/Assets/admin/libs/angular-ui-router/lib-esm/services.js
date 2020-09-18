@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /**
  * # Angular 1 types
  *
@@ -24,7 +22,7 @@ var mod_util = angular.module('ui.router.util', ['ui.router.init']);
 var mod_rtr = angular.module('ui.router.router', ['ui.router.util']);
 var mod_state = angular.module('ui.router.state', ['ui.router.router', 'ui.router.util', 'ui.router.angular1']);
 var mod_main = angular.module('ui.router', ['ui.router.init', 'ui.router.state', 'ui.router.angular1']);
-var mod_cmpt = angular.module('ui.router.compat', ['ui.router']);
+var mod_cmpt = angular.module('ui.router.compat', ['ui.router']); // tslint:disable-line
 var router = null;
 $uiRouterProvider.$inject = ['$locationProvider'];
 /** This angular 1 provider instantiates a Router and exposes its services via the angular injector */
@@ -38,8 +36,6 @@ function $uiRouterProvider($locationProvider) {
     router.stateRegistry.decorator('onRetain', getStateHookBuilder('onRetain'));
     router.stateRegistry.decorator('onEnter', getStateHookBuilder('onEnter'));
     router.viewService._pluginapi._viewConfigFactory('ng1', getNg1ViewConfigFactory());
-    // Disable decoding of params by UrlMatcherFactory because $location already handles this
-    router.urlService.config._decodeParams = false;
     var ng1LocationService = (router.locationService = router.locationConfig = new Ng1LocationServices($locationProvider));
     Ng1LocationServices.monkeyPatchPathParameterType(router);
     // backwards compat: also expose router instance as $uiRouterProvider.router
@@ -68,7 +64,7 @@ function runBlock($injector, $q, $uiRouter) {
     services.$injector = $injector;
     services.$q = $q;
     // https://github.com/angular-ui/ui-router/issues/3678
-    if (!Object.prototype.hasOwnProperty.call($injector, 'strictDi')) {
+    if (!$injector.hasOwnProperty('strictDi')) {
         try {
             $injector.invoke(function (checkStrictDi) { });
         }

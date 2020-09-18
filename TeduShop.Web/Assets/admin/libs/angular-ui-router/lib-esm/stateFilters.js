@@ -36,6 +36,9 @@ function $IncludedByStateFilter($state) {
     includesFilter.$stateful = true;
     return includesFilter;
 }
-angular.module('ui.router.state').filter('isState', $IsStateFilter).filter('includedByState', $IncludedByStateFilter);
+angular
+    .module('ui.router.state')
+    .filter('isState', $IsStateFilter)
+    .filter('includedByState', $IncludedByStateFilter);
 export { $IsStateFilter, $IncludedByStateFilter };
 //# sourceMappingURL=stateFilters.js.map

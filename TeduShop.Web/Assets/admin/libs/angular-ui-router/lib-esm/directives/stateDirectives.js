@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-interface */
-/* eslint-disable prefer-const */
 /**
  * # Angular 1 Directives
  *
@@ -12,10 +10,11 @@ import { ng as angular } from '../angular';
 import { extend, forEach, tail, isString, isObject, isArray, parse, noop, unnestR, identity, uniqR, inArray, removeFrom, } from '@uirouter/core';
 /** @hidden */
 function parseStateRef(ref) {
+    var parsed;
     var paramsOnly = ref.match(/^\s*({[^}]*})\s*$/);
     if (paramsOnly)
         ref = '(' + paramsOnly[1] + ')';
-    var parsed = ref.replace(/\n/g, ' ').match(/^\s*([^(]*?)\s*(\((.*)\))?\s*$/);
+    parsed = ref.replace(/\n/g, ' ').match(/^\s*([^(]*?)\s*(\((.*)\))?\s*$/);
     if (!parsed || parsed.length !== 4)
         throw new Error("Invalid state ref '" + ref + "'");
     return { state: parsed[1] || null, paramExpr: parsed[3] || null };
@@ -48,7 +47,7 @@ function getTypeInfo(el) {
 function clickHook(el, $state, $timeout, type, getDef) {
     return function (e) {
         var button = e.which || e.button, target = getDef();
-        if (!(button > 1 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey || el.attr('target'))) {
+        if (!(button > 1 || e.ctrlKey || e.metaKey || e.shiftKey || el.attr('target'))) {
             // HACK: This is to allow ng-clicks to be processed before the transition is initiated:
             var transition_1 = $timeout(function () {
                 if (!el.attr('disabled')) {
@@ -241,6 +240,7 @@ uiSrefDirective = [
                 var type = getTypeInfo(element);
                 var active = uiSrefActive[1] || uiSrefActive[0];
                 var unlinkInfoFn = null;
+                var hookFn;
                 var rawDef = {};
                 var getDef = function () { return processedDef($state, element, rawDef); };
                 var ref = parseStateRef(attrs.uiSref);
@@ -267,7 +267,7 @@ uiSrefDirective = [
                 scope.$on('$destroy', $uiRouter.transitionService.onSuccess({}, update));
                 if (!type.clickable)
                     return;
-                var hookFn = clickHook(element, $state, $timeout, type, getDef);
+                hookFn = clickHook(element, $state, $timeout, type, getDef);
                 bindEvents(element, scope, hookFn, rawDef.uiStateOpts);
             },
         };
@@ -601,7 +601,9 @@ uiSrefActiveDirective = [
                                 .map(splitClasses)
                                 .reduce(unnestR, []);
                         };
-                        var allClasses = getClasses(states).concat(splitClasses(activeEqClass)).reduce(uniqR, []);
+                        var allClasses = getClasses(states)
+                            .concat(splitClasses(activeEqClass))
+                            .reduce(uniqR, []);
                         var fuzzyClasses = getClasses(states.filter(function (x) { return $state.includes(x.state.name, x.params); }));
                         var exactlyMatchesAny = !!states.filter(function (x) { return $state.is(x.state.name, x.params); }).length;
                         var exactClasses = exactlyMatchesAny ? splitClasses(activeEqClass) : [];

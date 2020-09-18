@@ -722,8 +722,6 @@ export interface TemplateFactoryProvider {
 }
 declare module '@uirouter/core/lib/state/stateRegistry' {
     interface StateRegistry {
-        register(state: Ng1StateDeclaration | {
-            new (): Ng1StateDeclaration;
-        }): any;
+        register(state: Ng1StateDeclaration): any;
     }
 }

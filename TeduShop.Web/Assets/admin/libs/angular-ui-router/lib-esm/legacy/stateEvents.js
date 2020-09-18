@@ -267,7 +267,6 @@ export var $stateNotFound;
         .provider('$stateEvents', $StateEventsProvider)
         .run([
         '$stateEvents',
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         function ($stateEvents) {
             /* Invokes $get() */
         },
