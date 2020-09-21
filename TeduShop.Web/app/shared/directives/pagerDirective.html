@@ -3,7 +3,7 @@
         <ul class="pagination pagination-sm">
             <li><a ng-hide="page == 0" ng-click="search(0)"><<</a></li>
             <li><a ng-hide="page == 0" ng-click="search(page-1)"><</a></li>
-            <li ng-repeat="n in range()" ng-class="{active: n == page}">
+            <li ng-repeat="n in range()" ng-class="{active : n == page}">
                 <a ng-click="search(n)" ng-if="n != page">{{n+1}}</a>
                 <span ng-if="n == page">{{n+1}}</span>
             </li>
