@@ -60,6 +60,7 @@
                 new ProductCategory(){Name="Vien Thong",Alias="vien-thong",Status=true},
                 new ProductCategory(){Name="Đồ gia dụng",Alias="do-gia-dung",Status=true},
                 new ProductCategory(){Name="Mỹ phẩm",Alias="my-pham",Status=true},
+                new ProductCategory(){Name="Tao",Alias="Tao",Status=true},
             };
                 context.ProductCategories.AddRange(listProductCategory);
                 context.SaveChanges();

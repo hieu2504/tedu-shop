@@ -32,7 +32,17 @@
             </div>
         </div>
         <div class="card-body">
-            <div class="rpw">
+            <div class="row search">
+                <div class="col-md-6">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" ng-model="keyword" placeholder="Từ khóa">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" ng-click="search()">Tìm kiếm</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-md-12">
                     <div class="card-body">
                         <table class="table table-bordered">
@@ -50,7 +60,7 @@
                                     <td>{{item.ID}}</td>
                                     <td>{{item.Name}}</td>
                                     <td>
-                                        {{item.CreatedDate | date}}
+                                        {{item.CreatedDate | date:'dd/MM/yyyy hh:mm:ss'}}
                                     </td>
                                     <!--class="badge bg-danger"-->
                                     <td><span ng-class="{'badge bg-red':item.Status==false,'badge bg-green':item.Status==true}" >{{item.Status | statusFilter}}</span></td>
@@ -59,6 +69,13 @@
                                         <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="4">
+                                            Tổng số bản ghi: {{totalCount}}
+                                        </td>
+                                    </tr>
+                                </tfoot>
                             </tbody>
                         </table>
                     </div>
