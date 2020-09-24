@@ -8,7 +8,7 @@
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
                     <li class="breadcrumb-item"><a href="#">Sản phẩm</a></li>
-                    <li class="breadcrumb-item active">Danh mục sản phẩm</li>
+                    <li class="breadcrumb-item active">Danh mục</li>
                 </ol>
             </div>
         </div>
@@ -41,6 +41,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <button class="btn btn-success" ui-sref="add_product_category">Thêm mới</button>
+                </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
@@ -65,7 +68,7 @@
                                     <!--class="badge bg-danger"-->
                                     <td><span ng-class="{'badge bg-red':item.Status==false,'badge bg-green':item.Status==true}" >{{item.Status | statusFilter}}</span></td>
                                     <td>
-                                        <button class="btn btn-sm btn-primary"><i class="fa fa-pencil-alt"></i></button>
+                                        <button class="btn btn-sm btn-primary" ui-sref="edit_product_category({id:item.ID})"><i class="fa fa-pencil-alt"></i></button>
                                         <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>
@@ -73,11 +76,9 @@
                                     <tr>
                                         <td colspan="5">
                                             <span class="fa-pull-right">Trang: {{page+1}} - Tổng số bản ghi: {{totalCount}}</span>
-                                        
                                         </td>
                                     </tr>
                                 </tfoot>
-                            </tbody>
                         </table>
                     </div>
                 </div>
