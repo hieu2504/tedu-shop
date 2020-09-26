@@ -190,6 +190,7 @@
     <Compile Include="Api\AccountController.cs" />
     <Compile Include="Api\PostCategoryController.cs" />
     <Compile Include="Api\ProductCategoryController.cs" />
+    <Compile Include="Api\ProductController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -305,6 +306,12 @@
     <Content Include="Assets\admin\libs\angular-ui-router\release\ui-router-angularjs.js" />
     <Content Include="Assets\admin\libs\angular-ui-router\release\ui-router-angularjs.min.js" />
     <Content Include="Assets\admin\libs\angular-ui-router\rollup.config.js" />
+    <Content Include="Assets\admin\libs\bootbox\bootbox.all.js" />
+    <Content Include="Assets\admin\libs\bootbox\bootbox.js" />
+    <Content Include="Assets\admin\libs\bootbox\bootbox.locales.js" />
+    <Content Include="Assets\admin\libs\bootbox\dist\bootbox.all.min.js" />
+    <Content Include="Assets\admin\libs\bootbox\dist\bootbox.locales.min.js" />
+    <Content Include="Assets\admin\libs\bootbox\dist\bootbox.min.js" />
     <Content Include="Assets\admin\libs\bootstrap\dist\css\bootstrap-grid.css" />
     <Content Include="Assets\admin\libs\bootstrap\dist\css\bootstrap-grid.min.css" />
     <Content Include="Assets\admin\libs\bootstrap\dist\css\bootstrap-reboot.css" />
@@ -453,6 +460,18 @@
     <Content Include="Assets\admin\libs\jquery\src\var\support.js" />
     <Content Include="Assets\admin\libs\jquery\src\var\toString.js" />
     <Content Include="Assets\admin\libs\jquery\src\wrap.js" />
+    <Content Include="Assets\admin\libs\ngbootbox\dist\ngBootbox.js" />
+    <Content Include="Assets\admin\libs\ngbootbox\dist\ngBootbox.min.js" />
+    <Content Include="Assets\admin\libs\ngbootbox\examples\example-1\app.js" />
+    <Content Include="Assets\admin\libs\ngbootbox\examples\example-1\custom-dialog.tpl.html" />
+    <Content Include="Assets\admin\libs\ngbootbox\examples\example-1\index.html" />
+    <Content Include="Assets\admin\libs\ngbootbox\examples\example-2\app.js" />
+    <Content Include="Assets\admin\libs\ngbootbox\examples\example-2\index.html" />
+    <Content Include="Assets\admin\libs\ngbootbox\examples\example-2\main.js" />
+    <Content Include="Assets\admin\libs\ngbootbox\examples\example-2\require.js" />
+    <Content Include="Assets\admin\libs\ngbootbox\examples\index.html" />
+    <Content Include="Assets\admin\libs\ngbootbox\gulpfile.js" />
+    <Content Include="Assets\admin\libs\ngbootbox\ngBootbox.js" />
     <Content Include="Assets\admin\libs\slimscroll\client\example.html" />
     <Content Include="Assets\admin\libs\slimscroll\client\scripts\main.js" />
     <Content Include="Assets\admin\libs\slimscroll\client\test\scripts\slimscroll-events.js" />
@@ -802,6 +821,15 @@
     <Content Include="Assets\admin\libs\toastr\release checklist.md" />
     <Content Include="Assets\admin\libs\toastr\toastr.less" />
     <Content Include="Assets\admin\libs\toastr\toastr.scss" />
+    <Content Include="Assets\admin\libs\bootbox\CHANGELOG.md" />
+    <Content Include="Assets\admin\libs\bootbox\LICENSE.md" />
+    <Content Include="Assets\admin\libs\bootbox\package.json" />
+    <Content Include="Assets\admin\libs\bootbox\README.md" />
+    <Content Include="Assets\admin\libs\ngbootbox\.npmignore" />
+    <Content Include="Assets\admin\libs\ngbootbox\bower.json" />
+    <Content Include="Assets\admin\libs\ngbootbox\package.json" />
+    <Content Include="Assets\admin\libs\ngbootbox\README.md" />
+    <Content Include="Assets\admin\libs\ngbootbox\tsd.json" />
     <None Include="packages.config" />
     <Content Include="Assets\admin\libs\angular\angular.min.js.gzip" />
     <Content Include="Assets\admin\libs\angular\angular.min.js.map" />
@@ -834,6 +862,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Assets\admin\libs\ngbootbox\typings\angularjs\angular.d.ts" />
+    <TypeScriptCompile Include="Assets\admin\libs\ngbootbox\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="Assets\admin\libs\ngbootbox\typings\tsd.d.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

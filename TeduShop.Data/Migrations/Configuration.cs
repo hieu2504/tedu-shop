@@ -19,34 +19,35 @@
         protected override void Seed(TeduShop.Data.TeduShopDbContext context)
         {
             CreateProductCategorySample(context);
+            CreateProductSample(context);
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data.
 
-           /* var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new TeduShopDbContext()));
+            /* var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new TeduShopDbContext()));
 
-            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new TeduShopDbContext()));
+             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new TeduShopDbContext()));
 
-            var user = new ApplicationUser()
-            {
-                UserName = "abc",
-                Email = "abc@gmail.com",
-                EmailConfirmed = true,
-                BirthDay = DateTime.Now,
-                FullName = "abc xyz"
-            };
-            manager.Create(user, "123456");
+             var user = new ApplicationUser()
+             {
+                 UserName = "abc",
+                 Email = "abc@gmail.com",
+                 EmailConfirmed = true,
+                 BirthDay = DateTime.Now,
+                 FullName = "abc xyz"
+             };
+             manager.Create(user, "123456");
 
-            if (!roleManager.Roles.Any())
-            {
-                roleManager.Create(new IdentityRole { Name = "Admin" });
-                roleManager.Create(new IdentityRole { Name = "User" });
-            }
+             if (!roleManager.Roles.Any())
+             {
+                 roleManager.Create(new IdentityRole { Name = "Admin" });
+                 roleManager.Create(new IdentityRole { Name = "User" });
+             }
 
-            var adminUser = manager.FindByEmail("abc@gmail.com");
+             var adminUser = manager.FindByEmail("abc@gmail.com");
 
-            manager.AddToRoles(adminUser.Id, new string[] { "Admin", "User" });*/
+             manager.AddToRoles(adminUser.Id, new string[] { "Admin", "User" });*/
 
         }
 
@@ -66,6 +67,22 @@
                 context.SaveChanges();
             }
             
+        }
+
+        private void CreateProductSample(TeduShop.Data.TeduShopDbContext context)
+        {
+            if (context.Products.Count() == 0)
+            {
+                List<Product> listProductCategory = new List<Product>()
+            {
+                new Product(){Name="Tu lanh Toshiba",CategoryID=10,Alias="tu-lanh-toshiba",Status=true},
+                new Product(){Name="Cuc wifi",CategoryID=10,Alias="cuc-wifi",Status=true},
+               
+            };
+                context.Products.AddRange(listProductCategory);
+                context.SaveChanges();
+            }
+
         }
     }
 }
