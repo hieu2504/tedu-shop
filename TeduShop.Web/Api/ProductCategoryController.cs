@@ -186,7 +186,7 @@ namespace TeduShop.Web.Api
         [Route("deletemulti")]
         [HttpDelete]
         [AllowAnonymous]
-        public HttpResponseMessage DeleteMulti(HttpRequestMessage request, string listId)
+        public HttpResponseMessage DeleteMulti(HttpRequestMessage request, string checkedProductCategories)
         {
             return CreateHttpResponse(request, () =>
             {
@@ -198,15 +198,15 @@ namespace TeduShop.Web.Api
                 }
                 else
                 {
-                    var ids = new JavaScriptSerializer().Deserialize<List<int>>(listId);
+                    var listProductCategory = new JavaScriptSerializer().Deserialize<List<int>>(checkedProductCategories);
 
-                    foreach(var id in ids)
+                    foreach(var item in listProductCategory)
                     {
-                        _productCategoryService.Delete(id);
+                        _productCategoryService.Delete(item);
                     }
                     _productCategoryService.Save();
 
-                    response = request.CreateResponse(HttpStatusCode.Created, true);
+                    response = request.CreateResponse(HttpStatusCode.Created, listProductCategory.Count);
                 }
 
 

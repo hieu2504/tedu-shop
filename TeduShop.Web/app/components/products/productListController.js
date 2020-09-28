@@ -1,9 +1,9 @@
 ﻿(function (app) {
     app.controller('productListController', productListController);
 
-    productListController.$inject = ['$scope', 'apiService','notificationService']
+    productListController.$inject = ['$scope', 'apiService', 'notificationService', '$ngBootbox', '$filter'];
 
-    function productListController($scope, apiService, notificationService) {
+    function productListController($scope, apiService, notificationService, $ngBootbox, $filter) {
         $scope.products = [];
         $scope.page = 0;
         $scope.pagesCount = 0;
@@ -12,37 +12,105 @@
 
         $scope.search = search;
 
+        $scope.deleteProduct = deleteProduct;
+
+        $scope.selectAll = selectAll;
+
+        $scope.deleteMultiple = deleteMultiple;
+
+        function deleteMultiple() {
+            var listId = [];
+            $.each($scope.selected, function (i, item) {
+                listId.push(item.ID);
+            });
+            var config = {
+                params: {
+                    checkedProducts: JSON.stringify(listId)
+                }
+            }
+            apiService.del('api/product/deletemulti', config, function (result) {
+                notificationService.displaySuccess('Xóa thành công ' + result.data + ' bản ghi.');
+                search();
+            }, function (error) {
+                notificationService.displayError('Xóa không thành công.')
+            });
+        }
+
+
+        $scope.isAll = false;
+        function selectAll() {
+            if ($scope.isAll === false) {
+                angular.forEach($scope.products, function (item) {
+                    item.checked = true;
+                });
+                $scope.isAll = true;
+            } else {
+                angular.forEach($scope.products, function (item) {
+                    item.checked = false;
+                });
+                $scope.isAll = false;
+            }
+        }
+
+        $scope.$watch("products", function (n, o) {
+            var checked = $filter("filter")(n, { checked: true });
+            if (checked.length) {
+                $scope.selected = checked;
+                $('#btnDelete').removeAttr('disabled');
+            } else {
+                $('#btnDelete').attr('disabled', 'disabled');
+            }
+        }, true);
+
+
+        function deleteProduct(id) {
+            $ngBootbox.confirm('Bạn có chắc muốn xóa?').then(function () {
+                var config = {
+                    params: {
+                        id: id
+                    }
+                }
+                apiService.del('api/product/delete', config, function () {
+                    debugger;
+                    notificationService.displaySuccess('Xóa thành công');
+                    search();
+                }, function () {
+                    notificationService.displayError('Xóa không thành công');
+                })
+            });
+        }
+
         function search() {
             getProducts();
         }
 
         function getProducts(page) {
+
             page = page || 0;
-           // debugger;
+            //
             var config = {
                 params: {
                     keyword: $scope.keyword,
                     page: page,
-                    pageSize:20
+                    pageSize: 1
                 }
             }
-            // result là dữ liệu được trả về từ hàm getAll trong Api
             apiService.get('/api/product/getall', config, function (result) {
                 if (result.data.TotalCount == 0) {
-                    notificationService.displayWarning('Không có bản ghi nào được tìm thấy.')
+                    notificationService.displayWarning('Không có bản ghi nào được tìm thấy.');
                 }
-                debugger;
                 $scope.products = result.data.Items;
                 $scope.page = result.data.Page;
                 $scope.pagesCount = result.data.TotalPages;
                 $scope.totalCount = result.data.TotalCount;
-
             }, function () {
                 console.log('Load product failed');
             });
         }
-        //debugger;
-        //chạy phương thức ngay sau khi vào trang
+
         $scope.getProducts();
+
     }
 })(angular.module('tedushop.products'));
+
+//(angular.module('tedushop.product_categories')) khai bao controller nay thuoc module tedushop.product_categories

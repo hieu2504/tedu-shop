@@ -75,8 +75,8 @@
             {
                 List<Product> listProductCategory = new List<Product>()
             {
-                new Product(){Name="Tu lanh Toshiba",CategoryID=10,Alias="tu-lanh-toshiba",Status=true},
-                new Product(){Name="Cuc wifi",CategoryID=10,Alias="cuc-wifi",Status=true},
+                new Product(){Name="Tu lanh Toshiba",CategoryID=15,Alias="tu-lanh-toshiba",Status=true},
+                new Product(){Name="Cuc wifi",CategoryID=15,Alias="cuc-wifi",Status=true},
                
             };
                 context.Products.AddRange(listProductCategory);
