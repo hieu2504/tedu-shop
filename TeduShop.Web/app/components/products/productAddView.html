@@ -24,74 +24,107 @@
             <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Tên sản phẩm</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" ng-maxlength="256" required name="name" ng-model="productCategory.Name">
+                    <input type="text" class="form-control" ng-maxlength="256" required name="name" ng-model="product.Name">
                     <!--<span ng-show="frmAddProductCategory.name.$invalid" class="text-danger">Phải nhập tên danh mục</span>-->
-                    <span ng-show="frmAddProductCategory.name.$error.required" class="text-danger">Tên sản phẩm không được để trống.</span>
-                    <span ng-show="frmAddProductCategory.name.$error.maxlength" class="text-danger">Tên sản phẩm chỉ được 256 ký tự</span>
+                    <span ng-show="frmAddProduct.name.$error.required" class="text-danger">Tên sản phẩm không được để trống.</span>
+                    <span ng-show="frmAddProduct.name.$error.maxlength" class="text-danger">Tên sản phẩm chỉ được 256 ký tự</span>
 
                 </div>
             </div>
             <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Tiêu đề SEO</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" ng-maxlength="256" required name="alias" ng-model="productCategory.Alias">
-                    <span ng-show="frmAddProductCategory.alias.$error.required" class="text-danger">Phải nhập tiêu đề SEO</span>
-                    <span ng-show="frmAddProductCategory.alias.$error.maxlength" class="text-danger">Tiêu đề SEO chỉ được 256 ký tự</span>
+                    <input type="text" class="form-control" ng-maxlength="256" required name="alias" ng-model="product.Alias">
+                    <span ng-show="frmAddProduct.alias.$error.required" class="text-danger">Phải nhập tiêu đề SEO</span>
+                    <span ng-show="frmAddProduct.alias.$error.maxlength" class="text-danger">Tiêu đề SEO chỉ được 256 ký tự</span>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Mô tả ngắn</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" ng-maxlength="500" name="description" ng-model="productCategory.Description">
-                    <span ng-show="frmAddProductCategory.description.$error.maxlength" class="text-danger">Mô tả ngắn chỉ được 500 ký tự</span>
+                    <input type="text" class="form-control" ng-maxlength="500" name="description" ng-model="product.Description">
+                    <span ng-show="frmAddProduct.description.$error.maxlength" class="text-danger">Mô tả ngắn chỉ được 500 ký tự</span>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">ID danh mục</label>
                 <div class="col-sm-10">
-                    <select name="parentId" class="form-control" ng-model="productCategories.CategoryID" ng-options="option.ID for option in productCategories">
+                    <select name="parentId" class="form-control" ng-model="product.CategoryID" ng-options="option.ID as option.Name for option in productCategories">
                         <option value="">Danh mục gốc</option>
                     </select>
-                    <input type="hidden" name="parentId" ng-model="productCategories.ParentID" />
+                    <input type="hidden" name="parentId" ng-model="product.CategoryID" />
                 </div>
             </div>
             <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Thứ tự</label>
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Bảo hành</label>
                 <div class="col-sm-10">
-                    <input type="number" class="form-control" required name="displayOrder" ng-model="productCategory.DisplayOrder">
-                    <span ng-show="frmAddProductCategory.displayOrder.$invalid" class="text-danger">Phải nhập thứ tự</span>
+                    <input type="number" class="form-control" required name="warranty" ng-model="product.Warranty">
+                    <span>(tháng)</span><br />
+                    <span ng-show="frmAddProduct.warranty.$invalid" class="text-danger">Phải nhập thời gian bảo hành</span>
                 </div>
             </div>
+
+
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Giá</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" required name="price" ng-model="product.Price">
+                    <span ng-show="frmUpdateProduct.price.$invalid" class="text-danger">Phải nhập giá sản phẩm</span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Giá KM</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" name="promotionPrice" ng-model="product.PromotionPrice">
+                </div>
+            </div>
+
+
             <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Hình ảnh</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" ng-maxlength="500" name="image" ng-model="productCategory.Image">
-                    <span ng-show="frmAddProductCategory.image.$error.maxlength" class="text-danger">Hình ảnh chỉ được 500 ký tự</span>
+                    <input type="text" class="form-control" ng-maxlength="500" name="image" ng-model="product.Image">
+                    <span ng-show="frmAddProduct.image.$error.maxlength" class="text-danger">Hình ảnh chỉ được 500 ký tự</span>
+                    <button class="btn btn-default" type="button" ng-click="ChooseImage()">Chọn ảnh</button>
                 </div>
             </div>
+
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Mô tả sản phẩm</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" ng-maxlength="256" name="content" ng-model="product.Content"></textarea>
+                </div>
+            </div>
+            <script>
+
+           CKEDITOR.replace( 'content' );
+
+            </script>
+
             <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Meta Keyword</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" ng-maxlength="256" name="metaKeyword" ng-model="productCategory.MetaKeyword">
-                    <span ng-show="frmAddProductCategory.metaKeyword.$error.maxlength" class="text-danger">Meta Keyword chỉ được 256 ký tự</span>
+                    <input type="text" class="form-control" ng-maxlength="256" name="metaKeyword" ng-model="product.MetaKeyword">
+                    <span ng-show="frmAddProduct.metaKeyword.$error.maxlength" class="text-danger">Meta Keyword chỉ được 256 ký tự</span>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Meta Description</label>
                 <div class="col-sm-10">
-                    <textarea class="form-control" ng-maxlength="256" name="metaDescription" ng-model="productCategory.MetaDescription"></textarea>
-                    <span ng-show="frmAddProductCategory.metaDescription.$error.maxlength" class="text-danger">Meta Keyword chỉ được 256 ký tự</span>
+                    <textarea class="form-control" ng-maxlength="256" name="metaDescription" ng-model="product.MetaDescription"></textarea>
+                    <span ng-show="frmAddProduct.metaDescription.$error.maxlength" class="text-danger">Meta Keyword chỉ được 256 ký tự</span>
                 </div>
             </div>
 
             <div class="form-group row">
                 <div class="offset-sm-2 col-sm-10">
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" name="status" ng-model="productCategory.Status" ng-checked="productCategory.Status">
+                        <input type="checkbox" class="form-check-input" name="status" ng-model="product.Status" ng-checked="product.Status">
                         <label class="form-check-label" for="exampleCheck2">Kích hoạt</label>
                     </div>
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" name="homeFlag" ng-model="productCategory.HomeFlag" ng-checked="productCategory.HomeFlag">
+                        <input type="checkbox" class="form-check-input" name="homeFlag" ng-model="product.HomeFlag" ng-checked="product.HomeFlag">
                         <label class="form-check-label" for="exampleCheck2">Hiển thị trang chủ</label>
                     </div>
                 </div>
@@ -99,11 +132,11 @@
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
-            <button ui-sref="products_categories" class="btn btn-default">Hủy</button>
-            <button type="submit" ng-disabled="frmAddProductCategory.$invalid" class="btn btn-success fa-pull-right">Thêm mới</button>
+            <button ui-sref="products" class="btn btn-default">Hủy</button>
+            <button type="submit" ng-disabled="frmAddProduct.$invalid" class="btn btn-success fa-pull-right">Thêm mới</button>
         </div>
         <!-- /.card-footer -->
     </form>
-    </div>
 
 </section>
+

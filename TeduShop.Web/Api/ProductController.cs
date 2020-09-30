@@ -25,7 +25,7 @@ namespace TeduShop.Web.Api
             this._productService = productService;
         }
 
-        /*[Route("getallparents")]
+        [Route("getallparents")]
         [HttpGet]
         public HttpResponseMessage GetAll(HttpRequestMessage request)
         {
@@ -39,7 +39,7 @@ namespace TeduShop.Web.Api
                 var response = request.CreateResponse(HttpStatusCode.OK, responseData);
                 return response;
             });
-        }*/
+        }
 
 
         [Route("getall")]

@@ -28,7 +28,7 @@
                     checkedProducts: JSON.stringify(listId)
                 }
             }
-            apiService.del('api/product/deletemulti', config, function (result) {
+            apiService.del('/api/product/deletemulti', config, function (result) {
                 notificationService.displaySuccess('Xóa thành công ' + result.data + ' bản ghi.');
                 search();
             }, function (error) {
@@ -70,7 +70,7 @@
                         id: id
                     }
                 }
-                apiService.del('api/product/delete', config, function () {
+                apiService.del('/api/product/delete', config, function () {
                     debugger;
                     notificationService.displaySuccess('Xóa thành công');
                     search();
@@ -92,7 +92,7 @@
                 params: {
                     keyword: $scope.keyword,
                     page: page,
-                    pageSize: 1
+                    pageSize: 20
                 }
             }
             apiService.get('/api/product/getall', config, function (result) {

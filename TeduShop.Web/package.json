@@ -11,7 +11,8 @@
     "fastclick": "1.0.6",
     "toastr": "2.1.4",
     "bootbox": "5.4.0",
-    "ngbootbox": "0.2.0"
-
+    "ngbootbox": "0.2.0",
+    "ckeditor": "4.12.1",
+    "ng-ckeditor": "2.0.5"
   }
 }
