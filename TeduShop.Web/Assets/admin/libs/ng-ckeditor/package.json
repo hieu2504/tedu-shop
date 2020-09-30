@@ -1,50 +1,26 @@
 {
-  "_from": "ng-ckeditor@2.0.5",
-  "_id": "ng-ckeditor@2.0.5",
-  "_inBundle": false,
-  "_integrity": "sha512-P0V8WWaCqpWHilj+FLF67+trjJXu58D79EGVd5x/NViw5UudSdVHyHfkPw1qcbxtb+AYSaryO6zmwtRDW3exPQ==",
-  "_location": "/ng-ckeditor",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "version",
-    "registry": true,
-    "raw": "ng-ckeditor@2.0.5",
     "name": "ng-ckeditor",
-    "escapedName": "ng-ckeditor",
-    "rawSpec": "2.0.5",
-    "saveSpec": null,
-    "fetchSpec": "2.0.5"
-  },
-  "_requiredBy": [
-    "#DEV:/"
-  ],
-  "_resolved": "https://registry.npmjs.org/ng-ckeditor/-/ng-ckeditor-2.0.5.tgz",
-  "_shasum": "14ba19cb447b578305632f8ac4aa3811c80794b5",
-  "_spec": "ng-ckeditor@2.0.5",
-  "_where": "D:\\TEDU\\tedu-shop\\TeduShop.Web",
-  "bugs": {
-    "url": "https://github.com/miamarti/ng.ckeditor/issues"
-  },
-  "bundleDependencies": false,
-  "dependencies": {
-    "ckeditor": "*",
-    "jquery": ">= 1.9.1"
-  },
-  "deprecated": false,
-  "description": "Angular Module for rendering the CKEditor",
-  "homepage": "https://github.com/miamarti/ng.ckeditor#readme",
-  "keywords": [
-    "ckeditor",
-    "WYSIWYG",
-    "js",
-    "front-end",
-    "web"
-  ],
-  "main": "dist/ng-ckeditor.js",
-  "name": "ng-ckeditor",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/miamarti/ng.ckeditor.git"
-  },
-  "version": "2.0.5"
+    "version": "0.2.0",
+    "devDependencies": {
+        "grunt-regarde": "~0.1.1",
+        "grunt-hustler": "0.11.2",
+        "grunt-contrib-copy": "~0.4.1",
+        "grunt-contrib-clean": "~0.4.0",
+        "grunt-contrib-concat": "~0.3.0",
+        "grunt-contrib-requirejs": "~0.4.0",
+        "grunt-contrib-uglify": "~0.2.1",
+        "grunt": "~0.4.1",
+        "grunt-contrib-less": "~0.5.2",
+        "grunt-contrib-cssmin": "~0.6.1",
+        "karma": "~0.10",
+        "karma-jasmine": "*",
+        "karma-chrome-launcher": "*",
+        "karma-firefox-launcher": "*",
+        "karma-ng-html2js-preprocessor": "*",
+        "coveralls": "",
+        "karma-coverage": "~0.1.0"
+    },
+    "scripts": {
+        "test": "karma start --single-run --no-auto-watch"
+    }
 }

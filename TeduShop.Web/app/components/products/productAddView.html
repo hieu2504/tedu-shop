@@ -24,7 +24,7 @@
             <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Tên sản phẩm</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" ng-maxlength="256" required name="name" ng-model="product.Name">
+                    <input type="text" class="form-control" ng-change="GetSeoTitle()" ng-maxlength="256" required name="name" ng-model="product.Name">
                     <!--<span ng-show="frmAddProductCategory.name.$invalid" class="text-danger">Phải nhập tên danh mục</span>-->
                     <span ng-show="frmAddProduct.name.$error.required" class="text-danger">Tên sản phẩm không được để trống.</span>
                     <span ng-show="frmAddProduct.name.$error.maxlength" class="text-danger">Tên sản phẩm chỉ được 256 ký tự</span>
@@ -93,14 +93,20 @@
             <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Mô tả sản phẩm</label>
                 <div class="col-sm-10">
-                    <textarea class="form-control" ng-maxlength="256" name="content" ng-model="product.Content"></textarea>
+                    <textarea class="form-control" name="content" ckeditor="ckeditorOptions" ng-model="product.Content"></textarea>
                 </div>
             </div>
-            <script>
+            <!--<script>
 
-           CKEDITOR.replace( 'content' );
+                
+            </script>-->
 
-            </script>
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Tags</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" ng-maxlength="256" name="tags" ng-model="product.Tags">
+                </div>
+            </div>
 
             <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Meta Keyword</label>
@@ -126,6 +132,10 @@
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" name="homeFlag" ng-model="product.HomeFlag" ng-checked="product.HomeFlag">
                         <label class="form-check-label" for="exampleCheck2">Hiển thị trang chủ</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" name="hotFlag" ng-model="product.HotFlag" ng-checked="product.HotFlag">
+                        <label class="form-check-label" for="exampleCheck2">SP Hot</label>
                     </div>
                 </div>
             </div>

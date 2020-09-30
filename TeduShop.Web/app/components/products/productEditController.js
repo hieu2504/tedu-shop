@@ -10,7 +10,7 @@
         }
         $scope.ckeditorOptions = {
             languague: 'vi',
-            height:'200px'
+            height: '200px'
         }
         $scope.UpdateProduct = UpdateProduct;
         $scope.GetSeoTitle = GetSeoTitle;

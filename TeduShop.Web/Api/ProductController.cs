@@ -18,7 +18,7 @@ namespace TeduShop.Web.Api
     [RoutePrefix("api/product")]
     public class ProductController: ApiControllerBase
     {
-        private IProductService _productService;
+        public IProductService _productService;
 
         public ProductController(IErrorService errorService, IProductService productService) : base(errorService)
         {

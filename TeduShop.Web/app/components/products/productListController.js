@@ -85,7 +85,6 @@
         }
 
         function getProducts(page) {
-
             page = page || 0;
             //
             var config = {
@@ -95,6 +94,7 @@
                     pageSize: 20
                 }
             }
+            debugger
             apiService.get('/api/product/getall', config, function (result) {
                 if (result.data.TotalCount == 0) {
                     notificationService.displayWarning('Không có bản ghi nào được tìm thấy.');
