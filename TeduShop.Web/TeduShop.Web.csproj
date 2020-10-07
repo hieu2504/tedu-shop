@@ -278,6 +278,7 @@
     <Content Include="Assets\admin\img\credit\visa.png" />
     <Content Include="Assets\admin\img\default-150x150.png" />
     <Content Include="Assets\admin\img\icons.png" />
+    <Content Include="Assets\admin\img\luci.jpg" />
     <Content Include="Assets\admin\img\photo1.png" />
     <Content Include="Assets\admin\img\photo2.png" />
     <Content Include="Assets\admin\img\photo3.jpg" />
@@ -4066,6 +4067,16 @@
     <Content Include="Assets\admin\libs\angular\angular.min.js" />
     <Content Include="Assets\admin\libs\angular\index.js" />
     <Content Include="Libs\CKFinder.dll" />
+    <Content Include="UploadedFiles\images\Capture001%281%29.png" />
+    <Content Include="UploadedFiles\images\Capture001.png" />
+    <Content Include="UploadedFiles\images\tulanh.jpg" />
+    <Content Include="UploadedFiles\images\tải xuống.png" />
+    <Content Include="UploadedFiles\_thumbs\Images\Capture001%281%29.png" />
+    <Content Include="UploadedFiles\_thumbs\Images\Capture001%282%29.png" />
+    <Content Include="UploadedFiles\_thumbs\Images\Capture001%283%29.png" />
+    <Content Include="UploadedFiles\_thumbs\Images\Capture001.png" />
+    <Content Include="UploadedFiles\_thumbs\Images\tulanh.jpg" />
+    <Content Include="UploadedFiles\_thumbs\Images\tải xuống.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -4085,7 +4096,8 @@
     <Folder Include="Assets\admin\libs\jquery\src\core\var\" />
     <Folder Include="Assets\admin\libs\jquery\src\traversing\var\" />
     <Folder Include="Assets\client\" />
-    <Folder Include="UploadedFiles\" />
+    <Folder Include="UploadedFiles\files\" />
+    <Folder Include="UploadedFiles\flash\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
