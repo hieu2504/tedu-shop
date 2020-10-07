@@ -8,7 +8,6 @@
             this.login = function (userName, password) {
                 deferred = $q.defer();
                 var data = "grant_type=password&username=" + userName + "&password=" + password;
-                debugger;
                 //$http.post('/oauth/token', data, {
                 //    headers:
                 //        { 'Content-Type': 'application/x-www-form-urlencoded' }
@@ -28,8 +27,6 @@
                 //        deferred.resolve(err);
                 //    });
                 apiService.post('/oauth/token', data, function (response) {
-                    debugger;
-                   
                     userInfo = {
                         accessToken: response.data.access_token,
                         userName: userName
@@ -39,7 +36,6 @@
                     authData.authenticationData.userName = userName;
                     deferred.resolve(null);
                 }, function (err) {
-                        debugger;
                         authData.authenticationData.IsAuthenticated = false;
                         authData.authenticationData.userName = "";
                         deferred.resolve(err);
@@ -48,10 +44,7 @@
             }
 
             this.logOut = function () {
-                debugger;                
                 authenticationService.removeToken();
-                //authData.authenticationData.accessToken = null;
-               // $window.sessionStorage["TokenInfo"] = null;
                 authData.authenticationData.IsAuthenticated = false;
                 authData.authenticationData.userName = "";
             }

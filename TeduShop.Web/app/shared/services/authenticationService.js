@@ -15,7 +15,9 @@
 
             this.removeToken = function () {
                 tokenInfo = null;
-                $window.sessionStorage["TokenInfo"] = null;
+                $window.sessionStorage["TokenInfo"] = "";
+                $window.sessionStorage.removeItem('TokenInfo');
+                $http.defaults.headers.common['Authorization'] = tokenInfo;
             }
 
             this.init = function () {

@@ -12,6 +12,7 @@ using TeduShop.Service;
 
 namespace TeduShop.Web.Infrastructure.Core
 {
+    [Authorize]
     public class ApiControllerBase : ApiController
     {
         public IErrorService _errorService;

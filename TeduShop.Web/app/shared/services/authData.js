@@ -8,7 +8,6 @@
             userName: ""
         };
         authDataFactory.authenticationData = authentication;
-
         return authDataFactory;
     }]);
 })(angular.module('tedushop.common'));

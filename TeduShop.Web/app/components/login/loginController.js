@@ -9,9 +9,9 @@
 
             $scope.loginSubmit = function () {
                 loginService.login($scope.loginData.userName, $scope.loginData.password).then(function (response) {
-                    debugger;
                     if (response != null) {
-                        notificationService.displayError("Đăng nhập không đúng");
+                        debugger;
+                        notificationService.displayError("Đăng nhập không thành công");
                     } else {
                         var stateService = $injector.get('$state');
                         stateService.go('home');
