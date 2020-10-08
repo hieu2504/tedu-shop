@@ -66,7 +66,7 @@
                 context.ProductCategories.AddRange(listProductCategory);
                 context.SaveChanges();
             }
-            
+
         }
 
         private void CreateProductSample(TeduShop.Data.TeduShopDbContext context)
@@ -77,11 +77,14 @@
             {
                 new Product(){Name="Tu lanh Toshiba",CategoryID=15,Alias="tu-lanh-toshiba",Status=true},
                 new Product(){Name="Cuc wifi",CategoryID=15,Alias="cuc-wifi",Status=true},
-               
+
             };
                 context.Products.AddRange(listProductCategory);
                 context.SaveChanges();
             }
+
+
+
 
         }
     }

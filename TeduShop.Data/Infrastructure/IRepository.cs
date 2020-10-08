@@ -21,6 +21,8 @@ namespace TeduShop.Data.Infrastructure
 
         T Delete(int id);
 
+
+
         // Delete multi records
         void DeleteMulti(Expression<Func<T, bool>> where);
 

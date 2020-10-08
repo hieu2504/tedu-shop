@@ -15,6 +15,8 @@ namespace TeduShop.Service
 
         IEnumerable<ProductCategory> GetAll();
 
+        IEnumerable<ProductCategory> GetByAlias(string alias);
+
         IEnumerable<ProductCategory> GetAll(string keyword);
 
         IEnumerable<ProductCategory> GetAllByParentId(int parentId);
@@ -61,6 +63,11 @@ namespace TeduShop.Service
         public IEnumerable<ProductCategory> GetAllByParentId(int parentId)
         {
             return _ProductCategoryRepository.GetMulti(x => x.Status && x.ParentID == parentId);
+        }
+
+        public IEnumerable<ProductCategory> GetByAlias(string alias)
+        {
+            return _ProductCategoryRepository.GetByAlias(alias);
         }
 
         public ProductCategory GetById(int id)

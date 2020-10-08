@@ -114,6 +114,27 @@ namespace TeduShop.Web.Infrastructure.Extensions
             product.Tags = productVm.Tags;
         }
 
+        public static void UpdateUser(this ApplicationUser applicationUser,ApplicationUserViewModel applicationUserVM)
+        {
+            applicationUser.Id = applicationUserVM.Id;
+            applicationUser.FullName = applicationUserVM.FullName;
+            applicationUser.Address = applicationUserVM.Address;
+            applicationUser.BirthDay = applicationUserVM.BirthDay;
+            applicationUser.Email = applicationUserVM.Email;
+            applicationUser.EmailConfirmed = applicationUserVM.EmailConfirmed;
+            applicationUser.PasswordHash = applicationUserVM.PasswordHash;
+            applicationUser.SecurityStamp = applicationUserVM.SecurityStamp;
+            applicationUser.PhoneNumber = applicationUserVM.PhoneNumber;
+            applicationUser.PhoneNumberConfirmed = applicationUserVM.PhoneNumberConfirmed;
+            applicationUser.TwoFactorEnabled = applicationUserVM.TwoFactorEnabled;
+            applicationUser.LockoutEndDateUtc = applicationUserVM.LockoutEndDateUtc;
+            applicationUser.LockoutEnabled = applicationUserVM.LockoutEnabled;
+            applicationUser.AccessFailedCount = applicationUserVM.AccessFailedCount;
+            applicationUser.UserName = applicationUserVM.UserName;
+
+
+        }
+
 
     }
 }
